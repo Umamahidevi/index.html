@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcon Civil | Construction & Infrastructure</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ---------- DUAL COLOR HEADING ---------- */
+.dual-heading {
+  font-size: 32px;
+  font-weight: 700;
+    background: linear-gradient(to bottom, #2dd4bf 0%, #0f766e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 10px rgba(45, 212, 191, 0.25);
+}
+
+
+/* Hero dual heading (bigger) */
+.hero-dual {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(to bottom, #2dd4bf, #0f766e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 2s infinite alternate;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: #1f2933;
+      color: #fff;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      letter-spacing: 1px;
+      color: #fbbf24;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fbbf24;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 90vh;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('main.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 1.5s ease;
+    }
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      animation: SlideDown 1.2s ease forwards;
+      animation:textGlow 2s infinite alternate;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      border: none;
+      background: #fbbf24;
+      color: #1f2933;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .hero button:hover {
+      background: #f59e0b;
+      transform: scale(1.05);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 80px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h3 {
+      font-size: 32px;
+      color: #1f2933;
+    }
+
+    .section-title p {
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* ---------- CORE VALUES ---------- */
+    .values-section {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .value-card {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 3s ease forwards;
+    }
+
+    .value-card:nth-child(1) { animation-delay: 0.2s; }
+    .value-card:nth-child(2) { animation-delay: 0.4s; }
+    .value-card:nth-child(3) { animation-delay: 0.6s; }
+    .value-card:nth-child(4) { animation-delay: 0.8s; }
+
+    .value-card i {
+      font-size: 42px;
+      color: #22c55e;
+      margin-bottom: 15px;
+    }
+
+    .value-card h4 {
+      font-size: 18px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .value-card .line {
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #22c55e;
+      margin: 10px auto 20px;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    
+    /* ---------- SERVICES ---------- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #013568;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card i {
+      font-size: 40px;
+      color: #fbbf24;
+      margin-bottom: 15px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .project img {
+      width: 100%;
+      transition: transform 0.5s;
+    }
+
+    .project:hover img {
+      transform: scale(1.1);
+    }
+    /* ---------- CLIENTS AUTO SCROLL ---------- */
+.clients-section {
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.clients-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-track {
+  display: flex;
+  width: calc(250px * 10);
+  animation: scrollClients 20s linear infinite;
+}
+
+.client-card {
+  min-width: 250px;
+  background: #fff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-card img {
+  max-width: 120px;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.client-card:hover img {
+    filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Animation */
+@keyframes scrollClients {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+ /* ---------- CONTACT ---------- */
+    .contact {
+      background: #1f2933;
+      color: #fff;
+      border-radius: 16px;
+      padding: 50px;
+    }
+
+    .contact form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    .contact textarea {
+      grid-column: span 2;
+      resize: none;
+      height: 120px;
+    }
+
+    .contact button {
+      grid-column: span 2;
+      padding: 14px;
+      border: none;
+      background: #fbbf24;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+      to { opacity: 1; transform: translateY(0); }
+      @keyframes textGlow{
+  from{text-shadow:0 0 10px #fbbf24;}
+  to{text-shadow:0 0 25px #fbbf24;}
+    }
+  
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .contact form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact textarea, .contact button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="acrolic.png" style="margin: 20px;height: 50px;"  alt="Arcon Civil Logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <h2 >Building Strong Foundations</h2>
+      <p>Arcon Civil delivers reliable construction, infrastructure, and engineering solutions with quality, safety, and innovation.</p>
+      <button>Get a Quote</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-title">
+      <h3 class="dual-heading">About Us</h3>
+      <p>Trusted civil construction experts</p>
+    </div>
+    <div class="about">
+      <div>
+        <p>Arcon Civil is a professional civil engineering and construction company specializing in residential, commercial, and infrastructure projects. With experienced engineers and skilled workforce, we ensure timely delivery and superior quality.</p>
+      </div>
+      <img src="image2.jpeg" alt="Construction">
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section id="values" class="values-section">
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-users"></i>
+        <h4>CULTURALLY DRIVEN</h4>
+        <span class="line"></span>
+        <p>Incumbent within our ideology are three cornerstone principles – Passion, Transparency and Togetherness – each of which solidify our unwavering perseverance to develop and maintain long-term, purposeful relationships.</p>
+      </div>
+
+      <div class="value-card">
+        <i class="fas fa-handshake"></i>
+        <h4>END-TO-END DELIVERY</h4>
+        <span class="line"></span>
+        <p>With an ability to provide end-to-end project delivery, Arcon Civil can successfully perform a range of project requirements – from initial Feasibility Analyses to Design and Construct projects.</p>
+      </div>
+
+      <div class="value-card">
+        <i class="fas fa-vest"></i>
+        <h4>HSEQ MANAGEMENT</h4>
+        <span class="line"></span>
+        <p>Our Integrated Management System protects the Health and Safety of our employees, whilst ensuring Environmental and Quality aspects of all projects are achieved and upheld.</p>
+      </div>
+
+      <div class="value-card">
+        <i class="fas fa-certificate"></i>
+        <h4>OUR COMMITMENT</h4>
+        <span class="line"></span>
+        <p>Comprising a select team of highly skilled professionals with invaluable industry experience, Arcon Civil is committed to delivering quality projects on time and within budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-title">
+      <h3 class="dual-heading">Our Services</h3>
+      <p>What we offer</p>
+    </div>
+    <div class="services">
+      <div class="service-card">
+        <i class="fas fa-building"></i>
+        <h4 style="color: rgb(235, 228, 215)">Building Construction</h4>
+        <p style="color: rgb(235, 228, 215)">Residential and commercial building solutions.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-road"></i>
+        <h4 style="color: rgb(235, 228, 215)">Infrastructure</h4>
+        <p style="color: rgb(235, 228, 215)">Roads, bridges, and civil infrastructure works.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-hard-hat"></i>
+        <h4 style="color: rgb(235, 228, 215)">Project Management</h4>
+        <p style="color: rgb(235, 228, 215)">Efficient planning and execution of projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-title">
+      <h3 class="dual-heading">Our Projects</h3>
+      <p>Quality work delivered</p>
+    </div>
+    <div class="projects">
+      <div class="project"><img src="phone.jpeg" alt="Project" style="width: 400px; height: 400px;"></div>
+      <div class="project"><img src="phone2.jpeg" alt="Project" style="width: 400px; height: 400px;"></div>
+      <div class="project"><img src="phone 3.jpeg" alt="Project" style="width: 400px; height: 400px;"></div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients-section" id="clients">
+    <div class="section-title">
+      <h3 class="dual-heading">Our Clients</h3>
+      <p>Trusted by leading organizations</p>
+    </div>
+
+    <div class="clients-slider">
+      <div class="clients-track">
+        <!-- Repeat logos for seamless loop -->
+        <div class="client-card"><img src="icon 1.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 2.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 3.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 4.png" alt="Client"></div>
+        <div class="client-card"><img src="icon5.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 6.png" alt="Client"></div>
+        <div class="client-card"><img src="icon7.png" alt="Client"></div>
+        
+        <!-- Duplicate logos -->
+        <div class="client-card"><img src="icon 1.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 2.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 3.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 4.png" alt="Client"></div>
+        <div class="client-card"><img src="icon5.png" alt="Client"></div>
+        <div class="client-card"><img src="icon 6.png" alt="Client"></div>
+        <div class="client-card"><img src="icon7.png" alt="Client"></div>
+  </section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title">
+      <h3 class="dual-heading">Contact Us</h3>
+      <p>Get in touch with Arcon Civil</p>
+    </div>
+    <div class="contact">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Arcon Civil. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+
